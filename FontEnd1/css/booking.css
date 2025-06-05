@@ -1,0 +1,294 @@
+/* 🔹 รีเซ็ตค่าพื้นฐาน */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* 🔹 Container หลัก */
+.booking-container {
+    max-width: 1100px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 20px;
+}
+
+/* 🔹 ซ้าย: ข้อมูลผู้เข้าพัก */
+.left-section {
+    flex: 2;
+}
+
+/* 🔹 ขวา: รายละเอียดราคา */
+.right-section {
+    flex: 1;
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 🔹 หัวข้อ "จองห้องพัก" */
+.header-title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* 🔹 จัด Dropdown User ไปทางขวาบน */
+.top-web-right {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* 🔹 รูปภาพโรงแรม */
+.hotel-info {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#hotel-image {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* 🔹 ฟอร์มข้อมูล */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+}
+
+/* 🔹 ขยายช่องป้อนคำขอพิเศษ */
+.special-request textarea {
+    min-height: 140px;
+    resize: vertical;
+    font-size: 16px;
+}
+
+/* 🔹 ปรับขนาดและจัดแนวช่องเลือกวันที่ */
+.date-selection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.date-selection label {
+    font-weight: bold;
+}
+
+.date-selection input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 48%;
+}
+
+/* 🔹 ปรับขนาด Dropdown การชำระเงิน */
+.payment-method {
+    margin-top: 10px;
+}
+
+.payment-method label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.payment-method select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+    cursor: pointer;
+}
+
+/* 🔹 ปุ่มยืนยันการจอง */
+.confirm-btn {
+    width: 100%;
+    background: #007bff;
+    color: white;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+.confirm-btn:hover {
+    background: #0056b3;
+    transform: scale(1.03);
+}
+
+/* 🔹 Dropdown User */
+.dropdown {
+    position: relative;
+}
+
+/* ปุ่ม user-info */
+.user-info {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    z-index: 10;
+}
+
+/* dropdown-content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 999;
+    padding: 10px;
+    text-align: left;
+}
+
+/* แสดง dropdown เมื่อมีคลาส show */
+.dropdown-content.show {
+    display: block;
+}
+
+/* ลิงก์ใน dropdown */
+.dropdown-content a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: #007BFF;
+}
+/* 🔹 ปรับโครงสร้างช่องวันที่ใหม่ */
+.date-selection {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px; /* เพิ่มช่องว่างระหว่างช่องวันที่ */
+    margin-top: 10px;
+    align-items: center;
+}
+
+/* 🔹 ปรับขนาดช่องวันที่ให้เท่ากัน */
+.date-selection .date-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* 🔹 ปรับให้ Label อยู่ชิดกับช่อง Input */
+.date-selection label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    white-space: nowrap; /* ป้องกันข้อความขึ้นบรรทัดใหม่ */
+}
+
+/* 🔹 ปรับขนาดของช่อง Input วันที่ */
+.date-selection input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+    text-align: center;
+}
+
+.main-title {
+    text-align: center; /* ✅ จัดข้อความตรงกลาง */
+}
+
+/* 🔹 Responsive สำหรับหน้าจอเล็ก */
+@media screen and (max-width: 600px) {
+    .date-selection {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+
+/* 🔹 Responsive */
+@media screen and (max-width: 900px) {
+    .booking-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .right-section {
+        order: -1;
+    }
+
+    #hotel-image {
+        max-height: 200px;
+    }
+
+    .confirm-btn {
+        font-size: 16px;
+    }
+
+    .date-selection {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px; /* เพิ่มช่องว่างระหว่างช่องวันที่ */
+        margin-top: 10px;
+        align-items: center;
+    }
+
+    .date-selection input {
+        width: 100%;
+    }
+
+    .top-web-right {
+        position: relative;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+}

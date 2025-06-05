@@ -1,0 +1,306 @@
+/* 1. ตั้งค่าพื้นฐาน */
+* {
+    margin: 0; /* ลบระยะขอบของทุกองค์ประกอบ */
+    padding: 0; /* ลบระยะขอบในของทุกองค์ประกอบ */
+    box-sizing: border-box; /* กำหนดให้ขนาดขององค์ประกอบรวมถึงขอบและระยะขอบ */
+}
+
+body {
+    font-family: Arial, sans-serif; /* กำหนดฟอนต์ให้ใช้ Arial */
+    line-height: 1.5; /* กำหนดระยะห่างบรรทัด */
+    background-color: #f9f9f9; /* ใช้สำหรับ log-re.css */
+}
+
+/* 2. การตั้งค่า Header */
+header {
+    background-color: #ffffff; /* สีพื้นหลังของ Header */
+    padding: 20px 40px; /* ระยะห่างด้านในของ Header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* การเพิ่มเงาให้กับ Header */
+    position: sticky;
+}
+
+.top-web {
+    display: flex; /* ใช้ Flexbox เพื่อจัดการการจัดวาง */
+    justify-content: space-between; /* จัดให้รายการอยู่ห่างกัน */
+    align-items: center; /* จัดให้อังกฤษอยู่ตรงกลางในแนวตั้ง */
+    width: 100%; /* ให้ความกว้างเต็ม 100% */
+    transition: box-shadow 0.3s ease; /* เพิ่มเอฟเฟกต์เงาเมื่อมีการเลื่อน */
+    position: sticky;
+}
+
+/* 3. โลโก้และเมนู */
+.logo {
+    display: flex; /* ใช้ Flexbox เพื่อจัดรายการ */
+    align-items: center; /* จัดให้องค์ประกอบอยู่ตรงกลางในแนวตั้ง */
+    gap: 1em; /* ช่องว่างระหว่างรายการ */
+    font-size: 1.5rem; /* ขนาดตัวอักษรของโลโก้ */
+    font-weight: bold; /* ทำให้ตัวอักษรหนาขึ้น */
+    color: #007BFF; /* สีของตัวอักษร */
+}
+
+.logo ul {
+    list-style: none; /* ลบจุดหน้ารายการ */
+    display: flex; /* ใช้ Flexbox เพื่อจัดรายการในแนวนอน */
+    gap: 20px; /* ช่องว่างระหว่างไอเทม */
+    margin: 0; /* ลบระยะขอบด้านบนและล่าง */
+    padding: 0; /* ลบระยะขอบใน */
+}
+
+.logo ul li a {
+    text-decoration: none; /* ลบเส้นใต้ของลิงก์ */
+    color: #333; /* สีของข้อความ */
+    font-size: 1rem; /* ขนาดตัวอักษร */
+    font-weight: bold; /* ทำให้ข้อความหนาขึ้น */
+    transition: color 0.3s ease; /* เพิ่มการเปลี่ยนสีเมื่อเมาส์วาง */
+    display: flex; /* ใช้ Flexbox */
+    align-items: center; /* จัดให้องค์ประกอบอยู่ตรงกลางในแนวตั้ง */
+    gap: 5px; /* เพิ่มช่องว่างระหว่างไอคอนและข้อความ */
+}
+
+.logo ul li a img {
+    width: 20px; /* ขนาดของไอคอน */
+    height: 20px;
+}
+
+.logo ul li a:hover {
+    color: #007BFF; /* เปลี่ยนสีเมื่อเมาส์อยู่เหนือ */
+}
+
+/* 4. บาร์ค้นหา */
+.title-serch {
+    display: flex; /* ใช้ Flexbox เพื่อจัดรายการ */
+    gap: 10px; /* ช่องว่างระหว่างไอเทม */
+    align-items: center; /* จัดให้องค์ประกอบอยู่ตรงกลางในแนวตั้ง */
+}
+
+.title-serch input[type="text"] {
+    padding: 10px; /* ระยะห่างภายใน */
+    border: 1px solid #ddd; /* ขอบเส้น */
+    border-radius: 5px; /* มุมโค้ง */
+    flex: 1; /* ขยายให้เต็มพื้นที่ */
+    width: 300px; /* ความกว้างของช่อง */
+    font-size: 1rem; /* ขนาดตัวอักษร */
+}
+
+.btn_serch {
+    background-color: #007BFF; /* สีพื้นหลังของปุ่มค้นหา */
+    color: white; /* สีข้อความ */
+    border: none; /* ไม่มีเส้นขอบ */
+    padding: 10px 20px; /* ระยะห่างภายในของปุ่ม */
+    border-radius: 5px; /* มุมโค้งของปุ่ม */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อชี้ไปที่ปุ่ม */
+    font-size: 1rem; /* ขนาดตัวอักษร */
+    transition: background-color 0.3s; /* เพิ่มเอฟเฟกต์การเปลี่ยนสี */
+}
+
+.btn_serch:hover {
+    background-color: #0056b3; /* เปลี่ยนสีเมื่อเมาส์วาง */
+}
+
+/* 5. ปุ่มทางขวา */
+.top-web-right {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* เพิ่มช่องว่างระหว่างปุ่ม */
+    position: relative;
+}
+
+/* ปุ่มลงทะเบียน */
+.r {
+    background-color: white;
+    color: #007BFF;
+    border: 2px solid #007BFF;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.r:hover {
+    background-color: #e0f2ff;
+    color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* ปุ่มเข้าสู่ระบบ */
+.l {
+    background-color: white;
+    color: #007BFF;
+    border: 2px solid #007BFF;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.l:hover {
+    background-color: #e0f2ff;
+    color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* ปุ่ม dropdown - ยังคงทิ้งไว้ */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* ปุ่ม user-info */
+.user-info {
+    background-color: #007BFF; /* สีพื้นหลัง */
+    color: white; /* สีข้อความ */
+    border: none; /* ไม่มีเส้นขอบ */
+    border-radius: 20px; /* โค้งมุม */
+    padding: 10px 20px; /* ระยะห่างภายใน */
+    cursor: pointer; /* เปลี่ยน cursor */
+    display: flex; /* ใช้ flexbox */
+    align-items: center; /* จัดให้อยู่ตรงกลาง */
+    gap: 5px; /* ช่องว่างระหว่างไอคอนและข้อความ */
+    position: relative; /* ใช้ตำแหน่งอ้างอิง */
+    z-index: 10; /* ให้อยู่ด้านบนสุด */
+}
+
+/* dropdown-content */
+.dropdown-content {
+    display: none; /* ซ่อนโดยค่าเริ่มต้น */
+    position: absolute; /* ตำแหน่งแบบ absolute */
+    top: 100%; /* อยู่ด้านล่างปุ่ม */
+    right: 0; /* ชิดขวาสุด */
+    background-color: white; /* สีพื้นหลัง */
+    min-width: 200px; /* กำหนดความกว้างขั้นต่ำ */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงา */
+    border-radius: 5px; /* โค้งมุม */
+    z-index: 999; /* ให้อยู่ด้านบนสุด */
+    padding: 10px; /* ระยะห่างภายใน */
+    text-align: left; /* จัดข้อความชิดซ้าย */
+}
+
+/* แสดง dropdown เมื่อมีคลาส show */
+.dropdown-content.show {
+    display: block; /* แสดง dropdown */
+}
+
+/* ลิงก์ใน dropdown */
+.dropdown-content a {
+    color: #333; /* สีข้อความ */
+    text-decoration: none; /* ลบเส้นใต้ */
+    display: block; /* แสดงเต็มบรรทัด */
+    padding: 8px 12px; /* ระยะห่างภายใน */
+    font-size: 0.9rem; /* ขนาดข้อความ */
+    transition: background-color 0.2s ease; /* เอฟเฟกต์ */
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+    color: #007BFF; /* เปลี่ยนสีข้อความเมื่อ hover */
+}
+
+
+/* 6. Hero Section */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px);
+    background-image: url('../img/background-main.jpg'); /* ควรแทนที่ด้วย URL ที่ถูกต้อง */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+}
+
+.search-container {
+    text-align: center;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px; /* เพิ่ม Padding เพื่อความสมดุล */
+}
+
+.requse-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.requse-box form {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; /* จัดให้องค์ประกอบอยู่แนวเดียวกันทั้งแนวนอนและแนวตั้ง */
+}
+
+.requse-box input[type="text"],
+.requse-box input[type="date"] {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    flex: 1;
+    min-width: 150px;
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.requse-box input[type="text"]:focus,
+.requse-box input[type="date"]:focus {
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    border-color: #007BFF;
+}
+
+.requse-box button {
+    background-color: #007BFF;
+    color: #ffffff;
+    border: 2px solid #0056b3; /* เพิ่มขอบปุ่มเพื่อความชัดเจน */
+    cursor: pointer;
+    padding: 15px 30px; /* เพิ่ม Padding */
+    font-size: 1.2rem; /* ขยายขนาดตัวอักษร */
+    border-radius: 10px; /* มุมโค้งของปุ่ม */
+    white-space: nowrap;
+    transition: all 0.3s ease; /* เพิ่มเอฟเฟกต์การเปลี่ยนแปลง */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+}
+
+.requse-box button:hover {
+    background-color: #0056b3; /* สีพื้นหลังเมื่อเมาส์ชี้ */
+    border-color: #003f7f; /* สีขอบเมื่อเมาส์ชี้ */
+    transform: translateY(-2px) scale(1.1); /* เลื่อนและขยายเล็กน้อย */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* เงาเพิ่มขึ้นเมื่อเมาส์ชี้ */
+}
+
+/* การแสดงผลของ Search Bar Autocomplete */
+#searchResults {
+    position: absolute;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 300px;
+    z-index: 1000;
+}
+
+#searchResults li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#searchResults li:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* เพิ่มการตอบสนองสำหรับหน้าจอเล็ก */
+@media (max-width: 768px) {
+    .requse-box form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .requse-box button {
+        width: auto; /* ให้ปุ่มปรับตามเนื้อหา */
+    }
+}

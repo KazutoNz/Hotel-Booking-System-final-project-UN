@@ -1,0 +1,208 @@
+/* 2 - ตั้งค่าพื้นฐานสำหรับทุกองค์ประกอบ */
+* {
+    margin: 0; /* รีเซ็ตระยะขอบทั้งหมด */
+    padding: 0; /* รีเซ็ต Padding ทั้งหมด */
+    box-sizing: border-box; /* คำนวณขนาดรวมขององค์ประกอบ รวมถึงขอบและ Padding */
+}
+
+body {
+    font-family: Arial, sans-serif; /* กำหนดฟอนต์เริ่มต้น */
+    line-height: 1.5; /* กำหนดระยะบรรทัดให้เหมาะสม */
+    background-color: #f9f9f9; /* สีพื้นหลังของหน้าจอ */
+}
+
+/* Header - ส่วนหัวของเว็บ */
+header {
+    background-color: #fff; /* พื้นหลังสีขาว */
+    padding: 20px 40px; /* ระยะห่างภายในของ Header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เงาเบา ๆ เพื่อแยก Header ออกจากเนื้อหา */
+}
+
+.top-web {
+    display: flex; /* ใช้ Flexbox เพื่อจัดตำแหน่ง */
+    justify-content: space-between; /* กระจายพื้นที่ระหว่างลูก */
+    align-items: center; /* จัดลูกให้อยู่ตรงกลางแนวตั้ง */
+}
+
+/* Logo และชื่อเว็บไซต์ */
+.logo {
+    display: flex; /* ใช้ Flexbox */
+    align-items: center; /* จัดลูกให้อยู่ตรงกลาง */
+    gap: 1em; /* ระยะห่างระหว่างองค์ประกอบภายใน */
+    font-size: 1.5rem; /* ขนาดตัวอักษรของโลโก้ */
+    font-weight: bold; /* ทำให้ข้อความหนา */
+    color: #007BFF; /* สีข้อความ */
+}
+
+/* ช่องค้นหา */
+.title-serch {
+    display: flex; /* ใช้ Flexbox */
+    gap: 10px; /* ระยะห่างระหว่างช่องและปุ่ม */
+}
+
+.title-serch input[type="text"] {
+    padding: 10px; /* ระยะห่างภายในช่อง */
+    border: 1px solid #ddd; /* เส้นขอบสีอ่อน */
+    border-radius: 5px; /* มุมโค้ง */
+    flex: 1; /* ขยายความกว้างให้เต็มที่ */
+    width: 300px; /* ความกว้างคงที่ */
+}
+
+/* ปุ่มค้นหา */
+.btn_serch {
+    background-color: #007BFF; /* พื้นหลังสีฟ้า */
+    color: #fff; /* ข้อความสีขาว */
+    border: none; /* ไม่มีเส้นขอบ */
+    padding: 10px 20px; /* ระยะห่างภายใน */
+    border-radius: 5px; /* มุมโค้ง */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อวางเมาส์ */
+    transition: background-color 0.3s; /* เอฟเฟกต์เปลี่ยนสี */
+}
+
+.btn_serch:hover {
+    background-color: #0056b3; /* เปลี่ยนสีเมื่อเมาส์วาง */
+}
+
+/* เมนูในโลโก้ */
+.logo ul {
+    display: flex; /* ใช้ Flexbox */
+    list-style: none; /* ลบจุดนำหน้ารายการ */
+    gap: 20px; /* ระยะห่างระหว่างเมนู */
+}
+
+.logo ul li a {
+    text-decoration: none; /* ลบขีดเส้นใต้ */
+    color: #333; /* สีข้อความ */
+    font-size: 1rem; /* ขนาดตัวอักษร */
+    transition: color 0.3s; /* เอฟเฟกต์เปลี่ยนสี */
+}
+
+.logo ul li a:hover {
+    color: #007BFF; /* เปลี่ยนสีข้อความเมื่อเมาส์วาง */
+}
+
+/* ปุ่ม Login และ Register */
+.top-web-rigt {
+    display: flex; /* ใช้ Flexbox */
+    gap: 20px; /* เพิ่มระยะห่างระหว่างปุ่ม */
+}
+
+.button {
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* ปุ่มลงทะเบียน */
+.r {
+    background-color: white;
+    color: #007BFF;
+    border: 2px solid #007BFF;
+}
+
+.r:hover {
+    background-color: #e0f2ff;
+    color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* ปุ่มเข้าสู่ระบบ */
+.l {
+    background-color: white;
+    color: #007BFF;
+    border: 2px solid #007BFF;
+}
+
+.l:hover {
+    background-color: #e0f2ff;
+    transform: scale(1.05);
+}
+
+/* สไตล์สำหรับปุ่มที่กำลังใช้งาน */
+.button.active {
+    background-color: #0056b3; /* พื้นหลังสีเข้มสำหรับปุ่มที่ใช้งาน */
+    color: #ffffff; /* ข้อความสีขาว */
+    border: none; /* ไม่มีเส้นขอบ */
+    cursor: default; /* เปลี่ยนเคอร์เซอร์ให้เป็น default */
+    pointer-events: none; /* ปิดการคลิก */
+}
+
+
+/* Hero Section */
+.hero {
+    display: flex; /* ใช้ Flexbox */
+    justify-content: center; /* จัดลูกให้อยู่ตรงกลางแนวนอน */
+    align-items: center; /* จัดลูกให้อยู่ตรงกลางแนวตั้ง */
+    height: calc(96vh - 100px); /* ความสูงเท่ากับหน้าจอ ลบด้วย Header */
+    background-color: #eef2f7; /* สีพื้นหลังของ Hero Section */
+    padding: 20px; /* ระยะห่างภายใน */
+}
+
+/* ฟอร์ม Login/สมัครสมาชิก */
+.centrt-email-password {
+    background: #ffffff; /* พื้นหลังสีขาว */
+    padding: 40px; /* ระยะห่างภายใน */
+    border-radius: 10px; /* มุมโค้ง */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงารอบฟอร์ม */
+    width: 100%; /* ความกว้างเต็ม */
+    max-width: 400px; /* ความกว้างสูงสุด */
+    text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+}
+
+/* อินพุตของฟอร์ม */
+.centrt-email-password input[type="text"],
+.centrt-email-password input[type="email"],
+.centrt-email-password input[type="password"],
+.centrt-email-password input[type="submit"] {
+    width: 100%; /* กว้างเต็มฟอร์ม */
+    padding: 10px; /* ระยะห่างภายใน */
+    margin-bottom: 20px; /* ระยะห่างระหว่างอินพุต */
+    border: 1px solid #ddd; /* ขอบสีอ่อน */
+    border-radius: 5px; /* มุมโค้ง */
+}
+
+/* ปุ่ม Submit */
+.centrt-email-password input[type="submit"] {
+    background-color: #007BFF; /* พื้นหลังสีฟ้า */
+    color: #fff; /* ข้อความสีขาว */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์ */
+    transition: background-color 0.3s; /* เอฟเฟกต์เปลี่ยนสี */
+}
+
+.centrt-email-password input[type="submit"]:hover {
+    background-color: #0056b3; /* เปลี่ยนสีเมื่อเมาส์วาง */
+}
+
+/* Section แยกของฟอร์ม */
+.name, .email, .password {
+    display: flex; /* ใช้ Flexbox */
+}
+
+/* ส่วน Remember Me */
+.remember-me-container {
+    display: flex; /* ใช้ Flexbox */
+    align-items: center; /* จัดข้อความกับช่อง Checkbox ให้อยู่ตรงกลาง */
+    margin-bottom: 20px; /* ระยะห่างด้านล่าง */
+}
+
+.remember-me-container input[type="checkbox"] {
+    margin-right: 10px; /* ระยะห่างระหว่าง Checkbox และข้อความ */
+}
+
+.remember-me-container label {
+    font-size: 1rem; /* ขนาดตัวอักษร */
+    color: #333; /* สีข้อความ */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์ */
+}
+
+/* Footer */
+footer {
+    background-color: #111; /* พื้นหลังสีดำ */
+    padding: 20px; /* ระยะห่างภายใน */
+    color: #fff; /* สีข้อความ */
+    text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+}

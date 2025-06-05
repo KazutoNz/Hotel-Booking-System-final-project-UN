@@ -1,0 +1,728 @@
+/* 1. ตั้งค่าพื้นฐาน */
+* {
+    margin: 0; /* ลบระยะขอบของทุกองค์ประกอบ */
+    padding: 0; /* ลบระยะขอบในของทุกองค์ประกอบ */
+    box-sizing: border-box; /* กำหนดให้ขนาดขององค์ประกอบรวมถึงขอบและระยะขอบ */
+}
+
+body {
+    font-family: Arial, sans-serif; /* กำหนดฟอนต์ให้ใช้ Arial */
+    line-height: 1.5; /* กำหนดระยะห่างบรรทัด */
+    background-color: #f9f9f9; /* ใช้สำหรับ log-re.css */
+}
+
+/* 2. การตั้งค่า Header */
+header {
+    background-color: #ffffff; /* สีพื้นหลังของ Header */
+    padding: 20px 40px; /* ระยะห่างด้านในของ Header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* การเพิ่มเงาให้กับ Header */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.top-web {
+    display: flex; /* ใช้ Flexbox เพื่อจัดการการจัดวาง */
+    justify-content: space-between; /* จัดให้รายการอยู่ห่างกัน */
+    align-items: center; /* จัดให้อังกฤษอยู่ตรงกลางในแนวตั้ง */
+    width: 100%; /* ให้ความกว้างเต็ม 100% */
+    transition: box-shadow 0.3s ease; /* เพิ่มเอฟเฟกต์เงาเมื่อมีการเลื่อน */
+}
+
+/* 3. โลโก้และเมนู */
+.logo {
+    display: flex; /* ใช้ Flexbox เพื่อจัดรายการ */
+    align-items: center; /* จัดให้องค์ประกอบอยู่ตรงกลางในแนวตั้ง */
+    gap: 1em; /* ช่องว่างระหว่างรายการ */
+    font-size: 1.5rem; /* ขนาดตัวอักษรของโลโก้ */
+    font-weight: bold; /* ทำให้ตัวอักษรหนาขึ้น */
+    color: #007BFF; /* สีของตัวอักษร */
+}
+
+.logo ul {
+    list-style: none; /* ลบจุดหน้ารายการ */
+    display: flex; /* ใช้ Flexbox เพื่อจัดรายการในแนวนอน */
+    gap: 20px; /* ช่องว่างระหว่างไอเทม */
+    margin: 0; /* ลบระยะขอบด้านบนและล่าง */
+    padding: 0; /* ลบระยะขอบใน */
+}
+
+.logo ul li a {
+    text-decoration: none; /* ลบเส้นใต้ของลิงก์ */
+    color: #333; /* สีของข้อความ */
+    font-size: 1rem; /* ขนาดตัวอักษร */
+    font-weight: bold; /* ทำให้ข้อความหนาขึ้น */
+    transition: color 0.3s ease; /* เพิ่มการเปลี่ยนสีเมื่อเมาส์วาง */
+    display: flex; /* ใช้ Flexbox */
+    align-items: center; /* จัดให้องค์ประกอบอยู่ตรงกลางในแนวตั้ง */
+    gap: 5px; /* เพิ่มช่องว่างระหว่างไอคอนและข้อความ */
+}
+
+.logo ul li a img {
+    width: 20px; /* ขนาดของไอคอน */
+    height: 20px;
+}
+
+.logo ul li a:hover {
+    color: #007BFF; /* เปลี่ยนสีเมื่อเมาส์อยู่เหนือ */
+}
+
+/* 4. บาร์ค้นหา */
+.title-serch {
+    display: flex; /* ใช้ Flexbox เพื่อจัดรายการ */
+    gap: 10px; /* ช่องว่างระหว่างไอเทม */
+    align-items: center; /* จัดให้องค์ประกอบอยู่ตรงกลางในแนวตั้ง */
+}
+
+.title-serch input[type="text"] {
+    padding: 10px; /* ระยะห่างภายใน */
+    border: 1px solid #ddd; /* ขอบเส้น */
+    border-radius: 5px; /* มุมโค้ง */
+    flex: 1; /* ขยายให้เต็มพื้นที่ */
+    width: 300px; /* ความกว้างของช่อง */
+    font-size: 1rem; /* ขนาดตัวอักษร */
+}
+
+.btn_serch {
+    background-color: #007BFF; /* สีพื้นหลังของปุ่มค้นหา */
+    color: white; /* สีข้อความ */
+    border: none; /* ไม่มีเส้นขอบ */
+    padding: 10px 20px; /* ระยะห่างภายในของปุ่ม */
+    border-radius: 5px; /* มุมโค้งของปุ่ม */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อชี้ไปที่ปุ่ม */
+    font-size: 1rem; /* ขนาดตัวอักษร */
+    transition: background-color 0.3s; /* เพิ่มเอฟเฟกต์การเปลี่ยนสี */
+}
+
+.btn_serch:hover {
+    background-color: #0056b3; /* เปลี่ยนสีเมื่อเมาส์วาง */
+}
+
+/* 5. ปุ่มทางขวา */
+.top-web-right {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* เพิ่มช่องว่างระหว่างปุ่ม */
+    position: relative;
+}
+
+/* ปุ่มลงทะเบียน */
+.r {
+    background-color: white;
+    color: #007BFF;
+    border: 2px solid #007BFF;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.r:hover {
+    background-color: #e0f2ff;
+    color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* ปุ่มเข้าสู่ระบบ */
+.l {
+    background-color: white;
+    color: #007BFF;
+    border: 2px solid #007BFF;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.l:hover {
+    background-color: #e0f2ff;
+    color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* ปุ่ม dropdown - ยังคงทิ้งไว้ */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* ปุ่ม user-info */
+.user-info {
+    background-color: #007BFF; /* สีพื้นหลัง */
+    color: white; /* สีข้อความ */
+    border: none; /* ไม่มีเส้นขอบ */
+    border-radius: 20px; /* โค้งมุม */
+    padding: 10px 20px; /* ระยะห่างภายใน */
+    cursor: pointer; /* เปลี่ยน cursor */
+    display: flex; /* ใช้ flexbox */
+    align-items: center; /* จัดให้อยู่ตรงกลาง */
+    gap: 5px; /* ช่องว่างระหว่างไอคอนและข้อความ */
+    position: relative; /* ใช้ตำแหน่งอ้างอิง */
+    z-index: 10; /* ให้อยู่ด้านบนสุด */
+}
+
+/* dropdown-content */
+.dropdown-content {
+    display: none; /* ซ่อนโดยค่าเริ่มต้น */
+    position: absolute; /* ตำแหน่งแบบ absolute */
+    top: 100%; /* อยู่ด้านล่างปุ่ม */
+    right: 0; /* ชิดขวาสุด */
+    background-color: white; /* สีพื้นหลัง */
+    min-width: 200px; /* กำหนดความกว้างขั้นต่ำ */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงา */
+    border-radius: 5px; /* โค้งมุม */
+    z-index: 999; /* ให้อยู่ด้านบนสุด */
+    padding: 10px; /* ระยะห่างภายใน */
+    text-align: left; /* จัดข้อความชิดซ้าย */
+}
+
+/* แสดง dropdown เมื่อมีคลาส show */
+.dropdown-content.show {
+    display: block; /* แสดง dropdown */
+}
+
+/* ลิงก์ใน dropdown */
+.dropdown-content a {
+    color: #333; /* สีข้อความ */
+    text-decoration: none; /* ลบเส้นใต้ */
+    display: block; /* แสดงเต็มบรรทัด */
+    padding: 8px 12px; /* ระยะห่างภายใน */
+    font-size: 0.9rem; /* ขนาดข้อความ */
+    transition: background-color 0.2s ease; /* เอฟเฟกต์ */
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+    color: #007BFF; /* เปลี่ยนสีข้อความเมื่อ hover */
+}
+
+
+/* 6. Hero Section */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px);
+    background-image: url('../img/background-main.jpg'); /* ควรแทนที่ด้วย URL ที่ถูกต้อง */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+}
+
+.search-container {
+    text-align: center;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px; /* เพิ่ม Padding เพื่อความสมดุล */
+}
+
+.requse-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.requse-box form {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; /* จัดให้องค์ประกอบอยู่แนวเดียวกันทั้งแนวนอนและแนวตั้ง */
+}
+
+.requse-box input[type="text"],
+.requse-box input[type="date"] {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    flex: 1;
+    min-width: 150px;
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.requse-box input[type="text"]:focus,
+.requse-box input[type="date"]:focus {
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    border-color: #007BFF;
+}
+
+.requse-box button {
+    background-color: #007BFF;
+    color: #ffffff;
+    border: 2px solid #0056b3; /* เพิ่มขอบปุ่มเพื่อความชัดเจน */
+    cursor: pointer;
+    padding: 15px 30px; /* เพิ่ม Padding */
+    font-size: 1.2rem; /* ขยายขนาดตัวอักษร */
+    border-radius: 10px; /* มุมโค้งของปุ่ม */
+    white-space: nowrap;
+    transition: all 0.3s ease; /* เพิ่มเอฟเฟกต์การเปลี่ยนแปลง */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+}
+
+.requse-box button:hover {
+    background-color: #0056b3; /* สีพื้นหลังเมื่อเมาส์ชี้ */
+    border-color: #003f7f; /* สีขอบเมื่อเมาส์ชี้ */
+    transform: translateY(-2px) scale(1.1); /* เลื่อนและขยายเล็กน้อย */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* เงาเพิ่มขึ้นเมื่อเมาส์ชี้ */
+}
+
+/* การแสดงผลของ Search Bar Autocomplete */
+#searchResults {
+    position: absolute;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 300px;
+    z-index: 1000;
+}
+
+#searchResults li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#searchResults li:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* เพิ่มการตอบสนองสำหรับหน้าจอเล็ก */
+@media (max-width: 768px) {
+    .requse-box form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .requse-box button {
+        width: auto; /* ให้ปุ่มปรับตามเนื้อหา */
+    }
+}
+
+/* 7. Custom Date Picker */
+.flatpickr-calendar {
+    background: #ffffff; /* พื้นหลัง */
+    box-shadow: 0 4px 10px rgba(97, 54, 54, 0.1); /* เงาของปฏิทิน */
+    border-radius: 10px; /* มุมโค้ง */
+    font-family: Arial, sans-serif; /* ฟอนต์ */
+}
+
+.flatpickr-calendar .flatpickr-days {
+    background-color: #f9f9f9; /* พื้นหลังวัน */
+    border-radius: 10px; /* มุมโค้ง */
+    overflow: hidden; /* ลบการแสดงผลที่ล้นออกมา */
+}
+
+.flatpickr-calendar .flatpickr-day {
+    padding: 10px 15px; /* ระยะห่างในแต่ละวัน */
+    font-size: 1rem; /* ขนาดตัวอักษร */
+    cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อชี้ไปที่วัน */
+    transition: background-color 0.3s ease, color 0.3s ease; /* เพิ่มการเปลี่ยนแปลงเมื่อเมาส์วาง */
+}
+
+.flatpickr-calendar .flatpickr-day:hover {
+    background-color: #007BFF; /* สีพื้นหลังของวันที่เมื่อเมาส์วาง */
+    color: white; /* สีข้อความเมื่อเมาส์วาง */
+}
+
+/* ส่วนของ wrapper หลัก */
+.home-wrapper {
+    text-align: center;
+    padding: 40px 20px;
+    background: #f8f9fa; /* สีพื้นหลังเบาๆ */
+}
+
+/* ชื่อหัวข้อ */
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* กล่องรวมรายการจังหวัด */
+.popular-destinations {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* กล่องของแต่ละจังหวัด */
+.destination-card {
+    position: relative;
+    overflow: hidden;
+    width: 220px;
+    height: 150px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.destination-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* เอฟเฟกต์เมื่อเอาเมาส์ไปวาง */
+.destination-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.destination-card:hover img {
+    transform: scale(1.1);
+}
+
+/* ส่วนที่ซ้อนทับภาพ */
+.destination-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+
+footer {
+    background-color: #111;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+/* ปรับตำแหน่งปุ่ม ☰ */
+#menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    color: #007bff;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+/* ปรับ Sidebar */
+#sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    padding-top: 60px; /* ขยับเนื้อหาให้ลงมา */
+}
+
+/* ปรับปุ่ม X ให้เป็นปุ่มสไตล์เดียวกับ ☰ */
+#close-sidebar {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+#close-sidebar:hover {
+    background: #f1f1f1;
+}
+
+/* เปลี่ยนปุ่มเป็นเส้นแนวขวาง */
+#close-sidebar::before {
+    content: "≡"; /* ใช้สัญลักษณ์ ☰ แทน X */
+    font-size: 24px;
+    color: #007bff;
+}
+
+/* ปรับสไตล์ของเมนู */
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar ul li {
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* ระยะห่างระหว่างไอคอนกับข้อความ */
+    font-size: 18px;
+}
+
+#sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+#sidebar ul li a:hover {
+    color: #007bff;
+}
+
+/* ปรับไอคอนให้ดูสมดุล */
+#sidebar ul li a img {
+    width: 24px;
+    height: 24px;
+}
+
+/* เมื่อ Sidebar ถูกปิด */
+.sidebar-hidden {
+    transform: translateX(-100%);
+}
+
+/* ส่วนของปุ่มหัวข้อในหน้าประวัติการจอง */
+/* ====== ส่วนหัวของการจอง ====== */
+.container {
+    width: 100%;
+    max-width: 1100px; /* กำหนดขนาดให้ไม่กว้างเกินไป */
+    margin: 0 auto; /* จัดกึ่งกลางหน้า */
+    padding: 20px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* ====== ปุ่มตัวกรองการจอง ====== */
+.booking-tabs {
+    display: flex;
+    justify-content: flex-start; /* จัดปุ่มให้อยู่ชิดซ้าย */
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.booking-tabs .tab {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+/* เมื่อ Hover */
+.booking-tabs .tab:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+}
+
+/* ปุ่มที่ถูกเลือก (active) */
+.booking-tabs .tab.active {
+    background-color: #007BFF;
+    color: white;
+    border-color: #0056b3;
+    box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.2); /* ทำให้ดูเหมือนกดลง */
+    transform: scale(1); /* ป้องกันการขยายเมื่อ hover */
+}
+
+/* ====== ส่วนแสดงรายการจอง ====== */
+#my-booking-list {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    min-height: 100px; /* กำหนดความสูงเริ่มต้น */
+}
+
+/* ถ้ายังไม่มีการจอง */
+.no-booking {
+    text-align: center;
+    font-size: 18px;
+    color: #777;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+/* สไตล์กล่องการจอง */
+.booking-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid #ddd;
+    width: 95%; /* ขยายให้เต็มจอมากขึ้น */
+    max-width: 1200px; /* ปรับขนาดให้กว้างขึ้น */
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: row;
+}
+
+.booking-content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.booking-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.booking-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+}
+
+/* ภาพของโรงแรม */
+.booking-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+/* ส่วนของรายละเอียดการจอง */
+.booking-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 18px;
+}
+
+/* ชื่อโรงแรม */
+.booking-details h4 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* รายละเอียดเพิ่มเติม */
+.booking-details p {
+    font-size: 14px;
+    color: #666;
+    margin: 2px 0;
+}
+
+/* สไตล์ของราคาหรือป้ายสถานะ */
+.booking-status {
+    font-size: 16px;
+    font-weight: bold;
+    color: #007BFF;
+    text-align: right;
+}
+
+/* กล่องปุ่ม */
+.booking-actions {
+    display: flex;
+    gap: 15px; /* เพิ่มระยะห่างระหว่างปุ่ม */
+    align-items: center;
+    justify-content: flex-end; /* จัดปุ่มไปทางขวา */
+    margin-top: 10px; /* เพิ่มระยะห่างด้านบน */
+}
+
+/* ปุ่มต่างๆ */
+.booking-actions button {
+    padding: 8px 12px; /* ขยายขนาดปุ่ม */
+    font-size: 10px; /* ปรับขนาดตัวอักษร */
+    border: none;
+    border-radius: 8px; /* ทำให้มุมโค้งมน */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap; /* ป้องกันปุ่มย่อ */
+}
+
+/* ปุ่มลบ */
+.booking-actions .cancel {
+    background-color: #ff4d4d;
+    color: white;
+    font-weight: bold;
+}
+
+.booking-actions .cancel:hover {
+    background-color: #cc0000;
+}
+
+/* ปุ่มดีลโรงแรม */
+.booking-actions .deal {
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.booking-actions .deal:hover {
+    background-color: #e0e0e0;
+}
+
+/* ปุ่มจองอีกครั้ง */
+.booking-actions .rebook {
+    background-color: #007BFF;
+    color: white;
+}
+
+.booking-actions .rebook:hover {
+    background-color: #0056b3;
+}
+
+/* ===== ปรับให้รองรับหน้าจอมือถือ ===== */
+@media (max-width: 768px) {
+    .booking-card {
+        flex-direction: column;
+        align-items: center;
+        width: 95%;
+        padding: 10px;
+    }
+
+    .booking-card img {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 10px;
+    }
+
+    .booking-actions {
+        flex-direction: column; /* ให้ปุ่มเรียงในแนวตั้ง */
+        width: 100%;
+        align-items: center; /* จัดให้อยู่กึ่งกลาง */
+    }
+
+    .booking-actions button {
+        width: 90%; /* ทำให้ปุ่มกว้างขึ้นในมือถือ */
+    }
+}
