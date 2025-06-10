@@ -509,7 +509,7 @@ footer {
     width: 100%;
     max-width: 1100px; /* กำหนดขนาดให้ไม่กว้างเกินไป */
     margin: 0 auto; /* จัดกึ่งกลางหน้า */
-    padding: 20px;
+    padding: 0px;
 }
 
 .section-title {
