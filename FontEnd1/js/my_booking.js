@@ -74,7 +74,7 @@ function processBookingData(data, statusFilter) {
         cardContent.innerHTML = `
             <img src="${booking.hotel_image}" alt="รูปโรงแรม" class="hotel-image">
             <p>หมายเลขการจอง: <strong>${booking.id_ticket}</strong></p>
-            <p>วันที่จอง: ${booking.date_time}</p>
+            <p>วันที่จอง: ${formatDateToDDMMYY(booking.date_time)}</p>
             <h4>${booking.hotel_name}</h4>
             <p>ห้อง: ${booking.room_type}</p>
             <p>สถานะ: ${booking.status}</p>
@@ -154,6 +154,15 @@ function processBookingData(data, statusFilter) {
             }
         });
     });
+}
+
+//แปลงDATETIME ให้อยู่ในรูปแบบ (DD/MM/YY)
+function formatDateToDDMMYY(dateString) {
+    const date = new Date(dateString);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear().toString().slice(-2);
+    return `${day}/${month}/${year}`;
 }
 
 // ✅ ยกเลิกการจอง
