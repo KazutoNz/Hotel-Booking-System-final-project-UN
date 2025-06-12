@@ -5,11 +5,23 @@
     box-sizing: border-box; /* กำหนดให้ขนาดขององค์ประกอบรวมถึงขอบและระยะขอบ */
 }
 
+/* เพิ่ม html และ body เพื่อให้ footer อยู่ด้านล่างสุด */
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: Arial, sans-serif; /* กำหนดฟอนต์ให้ใช้ Arial */
     line-height: 1.5; /* กำหนดระยะห่างบรรทัด */
     background-color: #f9f9f9; /* ใช้สำหรับ log-re.css */
     min-height: 100vh; /* ทำให้ body เต็มหน้าจอ */
+    display: flex; /* ใช้ flexbox */
+    flex-direction: column; /* จัดเรียงในแนวตั้ง */
+}
+
+/* เพิ่ม wrapper สำหรับเนื้อหาหลัก */
+.main-content {
+    flex: 1; /* ให้เนื้อหาขยายเต็มพื้นที่ที่เหลือ */
 }
 
 /* 2. การตั้งค่า Header */
@@ -508,9 +520,12 @@ header {
     margin-bottom: 10px;
 }
 
+/* ปรับ Footer ให้อยู่ด้านล่างสุดเสมอ */
 footer {
     background-color: #111;
     padding: 20px;
     color: #fff;
     text-align: center;
+    margin-top: auto; /* ผลักให้ footer อยู่ด้านล่างสุด */
+    width: 100%;
 }
