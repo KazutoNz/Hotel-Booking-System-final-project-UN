@@ -15,7 +15,7 @@ $role = $loggedIn && isset($_SESSION['role']) ? $_SESSION['role'] : null; // ต
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>ผลการ</title>
     <link rel="stylesheet" href="css/styles_show.css">
 </head>
 <body>
@@ -72,57 +72,61 @@ $role = $loggedIn && isset($_SESSION['role']) ? $_SESSION['role'] : null; // ต
         </div>
     </header>
 
-    <section class="hero">
-        <div class="search-container">
-            <div class="requse-box">
-                <form id="searchForm" action="show_search.php" method="GET">
-                    <input type="text" name="search" placeholder="จุดหมายที่พัก" required>
-                    <input type="date" name="checkin_date" id="checkin-date">
-                    <input type="date" name="checkout_date" id="checkout-date">
-                    <button class="button" id="searchButton">ค้นหา</button>
-                </form>  
+    <div class="main-content">
+        <section class="hero">
+            <div class="search-container">
+                <div class="requse-box">
+                    <form id="searchForm" action="show_search.php" method="GET">
+                        <input type="text" name="search" placeholder="จุดหมายที่พัก" required>
+                        <input type="date" name="checkin_date" id="checkin-date">
+                        <input type="date" name="checkout_date" id="checkout-date">
+                        <button class="button" id="searchButton">ค้นหา</button>
+                    </form>  
+                </div>
+            </div>
+        </section>
+
+
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+            <h2>ผลการค้นหาโรงแรม</h2>
+            <div class="hotel-container">
+                <?php
+                // ตรวจสอบว่ามีค่าจากการส่งผ่าน `GET` หรือไม่
+                if (isset($_GET['search']) && !empty($_GET['search'])) {
+                    include "BackEnd/search_results.php";
+                } else {
+                    echo "<p>กรุณากรอกคำค้นหา</p>";
+                }
+                ?>
             </div>
         </div>
-    </section>
 
-
-
-   <!-- Hero Section -->
-   <div class="hero-section">
-        <h2>ผลการค้นหาโรงแรม</h2>
-        <div class="hotel-container">
-            <?php
-            // ตรวจสอบว่ามีค่าจากการส่งผ่าน `GET` หรือไม่
-            if (isset($_GET['search']) && !empty($_GET['search'])) {
-                include "BackEnd/search_results.php";
-            } else {
-                echo "<p>กรุณากรอกคำค้นหา</p>";
-            }
-            ?>
+        <!-- Modal -->
+        <div id="hotelModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 id="modalTitle"></h2>
+                <div id="modalDetails"></div>
+            </div>
         </div>
     </div>
-
-    <!-- Modal -->
-    <div id="hotelModal" class="modal" style="display: none;">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle"></h2>
-            <div id="modalDetails"></div>
-        </div>
-    </div>
-
-    <!-- ดึงไฟล์ Js มาใช้-->
-    <script src="js/date_handler.js"></script>
-    <script src="js/date_move.js"></script>
-    <script src="js/result.js"></script>
-    <script src="js/filter-search.js"></script>
-    <script src="js/dropdown_button.js"></script>
-
-
+    
     <!-- Footer Section -->
-    <footer>
-        <p>Copyright &copy; Website 2024</p>
+        <footer>
+            <p>Copyright &copy; Website 2024</p>
     </footer>
+
+        <!-- ดึงไฟล์ Js มาใช้-->
+        <script src="js/date_handler.js"></script>
+        <script src="js/date_move.js"></script>
+        <script src="js/result.js"></script>
+        <script src="js/filter-search.js"></script>
+        <script src="js/dropdown_button.js"></script>
+
+
+        
     
 </body>
 </html>
