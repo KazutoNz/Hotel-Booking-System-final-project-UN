@@ -1,6 +1,5 @@
 <?php 
 require '../BackEnd/session_manager.php'; // ใช้ session_manager.php
-
 // ตรวจสอบว่าผู้ใช้ล็อกอินหรือยัง
 if (!isset($_SESSION['username'])) {
     header('Location: login.html');
@@ -10,6 +9,9 @@ if (!isset($_SESSION['username'])) {
 // เก็บข้อมูลจาก Session
 $username = htmlspecialchars($_SESSION['username']); // ป้องกัน XSS
 $role = $_SESSION['role']; // ตรวจสอบบทบาท (role)
+
+//ดึง php มาเก็บข้อมูลการเข้า web (Count Viewer)
+include '../Backend/track_visitor.php';
 ?>
 
 <!DOCTYPE html>
