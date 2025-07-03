@@ -51,9 +51,6 @@ if (strtotime($checkout_date) <= strtotime($checkin_date)) {
     exit;
 }
 
-// Debug ค่าที่ส่งมา
-//file_put_contents('debug_post.txt', print_r($_POST, true));
-
 try {
     // ✅ ตรวจสอบว่าห้องพักมีอยู่จริง
     $stmt_room = $pdo->prepare("SELECT r.id_room 
