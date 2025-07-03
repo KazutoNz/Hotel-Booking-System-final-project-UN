@@ -9,9 +9,10 @@ checkLogin(); // ตรวจสอบสถานะการล็อกอิ
 
 // ดึงข้อมูลผู้ใช้จากเซสชัน
 $username = htmlspecialchars($_SESSION['username'] ?? 'Guest');
+
+//ดึง php มาเก็บข้อมูลการเข้า web (Count Viewer)
+include 'Backend/track_visitor.php';
 ?>
-<!-- ดึง php มาเก็บข้อมูลการเข้า web (Count Viewer) -->
-<?php include 'Backend/track_visitor.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
