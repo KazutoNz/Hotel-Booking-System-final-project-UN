@@ -52,7 +52,7 @@ if (strtotime($checkout_date) <= strtotime($checkin_date)) {
 }
 
 // Debug ค่าที่ส่งมา
-file_put_contents('debug_post.txt', print_r($_POST, true));
+//file_put_contents('debug_post.txt', print_r($_POST, true));
 
 try {
     // ✅ ตรวจสอบว่าห้องพักมีอยู่จริง
