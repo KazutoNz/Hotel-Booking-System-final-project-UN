@@ -110,7 +110,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert("จองสำเร็จ! กรุณาชำระเงินที่หน้า QR Code");
                 window.location.href = `scan_qr.php?id_ticket=${result.id_ticket}`;
             } else {
-                alert("เกิดข้อผิดพลาด: " + result.error);
+                let message = "";
+
+                // ตรวจข้อความ error แล้วเปลี่ยนให้ user-friendly
+                if (result.error.includes("phone_number")) {
+                    message = "กรุณากรอกหมายเลขโทรศัพท์";
+                } else if (result.error.includes("first_name")) {
+                    message = "กรุณากรอกชื่อของคุณ";
+                } else if (result.error.includes("last_name")) {
+                    message = "กรุณากรอกนามสกุล";
+                } else if (result.error.includes("email")) {
+                    message = "กรุณากรอกเมลที่ต้องการ";
+                } else {
+                    message = "เกิดข้อผิดพลาด: " + result.error;
+                }
+
+                alert(message);
             }
         })
         .catch(error => {
