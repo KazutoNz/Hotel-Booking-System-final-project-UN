@@ -124,6 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 } else {
                     message = "เกิดข้อผิดพลาด: " + result.error;
                 }
+                
                 alert(message);
             }
         })

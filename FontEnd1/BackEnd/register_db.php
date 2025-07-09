@@ -87,7 +87,7 @@ try {
 
     echo "<script>
         alert('ลงทะเบียนสำเร็จ');
-        window.location.href = '../login.html';
+        window.location.href = '../login.php';
     </script>";
     exit;
 } catch (PDOException $e) {
