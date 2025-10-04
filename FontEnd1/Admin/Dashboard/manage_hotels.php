@@ -50,7 +50,7 @@ $role = $_SESSION['role']; // ตรวจสอบบทบาท (role)
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Dashboard Admin</div>
+                <div class="sidebar-brand-text mx-3">StayGo Admin</div>
             </a>
 
             <!-- Divider -->
